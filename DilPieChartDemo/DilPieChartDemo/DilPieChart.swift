@@ -28,7 +28,7 @@ class DilPieChart:UIView{
     var centerPoint:CGPoint
     var radius:CGFloat
     var angelOffset:CGFloat = 0
-    var colors:[UIColor] = []
+    var colors:[CGColor] = []
     
     // the input frame is the canvas frame, the
     override init(frame: CGRect) {
@@ -61,13 +61,13 @@ class DilPieChart:UIView{
         }
         if self.colors.count <= 0 {
             self.values.forEach { (_) in
-                self.colors.append(getRandomColor())
+                self.colors.append(getRandomColor().cgColor)
             }
         }
         self.selectedIndex = selected
         self.layers = []
         if values.count <= 0{
-            drawArc(start: 0, end: CGFloat.pi * 2, highlight: false)
+            drawArc(start: 0, end: CGFloat.pi * 2, highlight: false, color:UIColor.red.cgColor)
             self.startPoints.append(0)
             self.endPoints.append(CGFloat.pi * 2)
         }else{
@@ -75,18 +75,18 @@ class DilPieChart:UIView{
             for i in 0..<values.count{
                 self.startPoints.append(start)
                 self.endPoints.append(start + CGFloat( 2 * Double.pi * values[i] / valueSum ))
-                drawArc(start:self.startPoints[i], end: self.endPoints[i], highlight: i == self.selectedIndex)
+                drawArc(start:self.startPoints[i], end: self.endPoints[i], highlight: i == self.selectedIndex, color:self.colors[i])
                 start = start + CGFloat( 2 * Double.pi * values[i] / valueSum )
             }
         }
     }
     
-    func drawArc(start:CGFloat, end:CGFloat, highlight:Bool){
+    func drawArc(start:CGFloat, end:CGFloat, highlight:Bool, color:CGColor){
         let circlePath = UIBezierPath(arcCenter: self.centerPoint, radius: self.radius, startAngle: start, endAngle:end - self.angelOffset, clockwise: true)
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = circlePath.cgPath
         shapeLayer.fillColor = UIColor.clear.cgColor
-        shapeLayer.strokeColor = UIColor.red.cgColor
+        shapeLayer.strokeColor = color
         shapeLayer.lineWidth = highlight ? 8.0 : 3.0
         self.layer.addSublayer(shapeLayer)
         self.layers.append(shapeLayer)
@@ -130,10 +130,11 @@ class DilPieChart:UIView{
     
     func getRandomColor() -> UIColor {
         //Generate between 0 to 1
-        let red:CGFloat = CGFloat(drand48())
-        let green:CGFloat = CGFloat(drand48())
-        let blue:CGFloat = CGFloat(drand48())
+        let red:CGFloat = CGFloat(CGFloat(arc4random_uniform(255)) / 255)
+        let green:CGFloat = CGFloat(CGFloat(arc4random_uniform(255)) / 255)
+        let blue:CGFloat = CGFloat(CGFloat(arc4random_uniform(255)) / 255)
         
+        print("\(red),\(green) ,\(blue) ")
         return UIColor(red:red, green: green, blue: blue, alpha: 1.0)
     }
 }
