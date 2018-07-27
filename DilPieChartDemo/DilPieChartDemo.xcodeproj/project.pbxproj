@@ -13,6 +13,7 @@
 		B702DA79210AC29900913E10 /* DilPieChartDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B702DA77210AC29900913E10 /* DilPieChartDemo.xcdatamodeld */; };
 		B702DA7B210AC29900913E10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B702DA7A210AC29900913E10 /* Assets.xcassets */; };
 		B702DA7E210AC29900913E10 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B702DA7C210AC29900913E10 /* LaunchScreen.storyboard */; };
+		B702DA86210AC5AA00913E10 /* DilPieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = B702DA85210AC5AA00913E10 /* DilPieChart.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		B702DA7A210AC29900913E10 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B702DA7D210AC29900913E10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B702DA7F210AC29900913E10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B702DA85210AC5AA00913E10 /* DilPieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DilPieChart.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				B702DA7C210AC29900913E10 /* LaunchScreen.storyboard */,
 				B702DA7F210AC29900913E10 /* Info.plist */,
 				B702DA77210AC29900913E10 /* DilPieChartDemo.xcdatamodeld */,
+				B702DA85210AC5AA00913E10 /* DilPieChart.swift */,
 			);
 			path = DilPieChartDemo;
 			sourceTree = "<group>";
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B702DA79210AC29900913E10 /* DilPieChartDemo.xcdatamodeld in Sources */,
+				B702DA86210AC5AA00913E10 /* DilPieChart.swift in Sources */,
 				B702DA73210AC29900913E10 /* ViewController.swift in Sources */,
 				B702DA71210AC29900913E10 /* AppDelegate.swift in Sources */,
 			);
